@@ -1,0 +1,460 @@
+/* /////////////// */
+/* ESSENTIAL STUFF */
+:root {
+  --main-foreground-color: #75787b;
+  --cyan-color: #34b5e0;
+  --yello-color: #ffbc00;
+  --table-header: #ffe047;
+  --main-background-color: #f6f6f6;
+  --secondary-background-color: #ffffff;
+  --input-background-color: #f5f6f8;
+}
+
+/* override the bootstrap active */
+.active {
+  color: var(--cyan-color) !important;
+}
+
+/* unchecked & show */
+.unchecked,
+.hide {
+  display: none !important;
+}
+
+/* checked & show */
+.checked,
+.show {
+  display: block;
+}
+
+/* the main hover effect */
+.hovered:hover {
+  background-color: var(--yello-color) !important;
+}
+
+/* bootstrap hover */
+.table-hover tbody tr:hover {
+  border: 2px solid var(--cyan-color); /* Change border color as per your preference */
+}
+.table-hover tbody tr {
+  border: 2px solid transparent;
+}
+
+/* MAIN COMPONENTS STYLE */
+
+/* INPUT COMPONENTS STYLE */
+
+/* main inputs style */
+.input {
+  background-color: var(--main-background-color);
+  border: 1.5px solid var(--main-foreground-color);
+  color: var(--main-foreground-color);
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+/* CHECKBOX COMPONENTS STYLE */
+
+/* checkbox container */
+.checkbox-container {
+  width: 60px;
+}
+
+/* the main checkbox style */
+.checkbox {
+  background-color: var(--main-background-color);
+  border: 1.5px solid var(--main-foreground-color);
+  border-radius: 10px;
+  font-size: 20px;
+  height: 42px;
+  width: 42px;
+  margin-right: 10px;
+}
+
+/* BUTTONS COMPONENTS STYLE */
+
+/* main buttom  style */
+.button {
+  background-color: var(--cyan-color);
+  color: var(--main-background-color);
+  border: solid 1px var(--main-foreground-color);
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px 30px;
+  align-self: flex-end;
+}
+
+/* the mini unborders button */
+.mini-button {
+  background: none;
+  border: none;
+  color: #4c4f52;
+}
+
+.mini-button:hover {
+  color: var(--yello-color);
+}
+
+/* NAVIGATION PATH COMPONENTS */
+.breadcrumb {
+  background-color: var(--secondary-background-color) !important;
+  font-size: 25px;
+  padding: 0;
+  margin: 10px;
+}
+
+/* NAVIGATION STUFF */
+
+/* menu button */
+.menu-button-icon {
+  height: 25px;
+  width: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-button-icon:hover {
+  height: 30px;
+  width: 30px;
+  fill: var(--yello-color);
+}
+
+/* the navigation separator */
+.nav-hr {
+  color: var(--main-foreground-color);
+  background-color: var(--main-foreground-color);
+  width: 1px;
+  height: 40px;
+  margin: 0;
+}
+
+/* pages navigation */
+
+.pages-navigaton-container {
+  width: 15vw;
+}
+
+.pages-links {
+  width: 8vw;
+}
+
+.page-link {
+  width: 35px;
+  height: 35px;
+  border-radius: 7px;
+  background: none;
+  border: none;
+}
+
+/* THE MENU VIEW STYLE */
+
+/* menu style */
+.menu-nav {
+  width: 80vw;
+}
+
+.menu-header {
+  animation: menu-header 0.4s ease-in-out;
+  visibility: visible;
+  position: absolute;
+  top: 85px;
+  left: 80px;
+}
+
+.menu-page-header {
+  color: var(--cyan-color);
+}
+
+.menu-page-header {
+  animation: menu-page-header 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  visibility: visible;
+  position: absolute;
+  top: 220px;
+  left: 45vw;
+}
+
+.menu-items {
+  visibility: hidden !important;
+}
+
+.current-menu-page {
+  color: red;
+}
+
+.current-menu-page-line {
+  height: 3px;
+  background-color: var(--yello-color);
+  border-radius: 5px;
+}
+
+.menu-animate {
+  visibility: visible !important;
+  animation: menu-items-animation 0.3s ease-in-out;
+  transform: scale(1.5);
+  transition: visibility 0.01s ease-in-out, scale 0.3s ease-in;
+}
+
+/* /////////////////////////// */
+/* JUMBING ANIMATION KEYFRAMES */
+@keyframes menu-items-animation {
+  from {
+    transform: scale(0);
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+    transform: scale(1.5);
+  }
+}
+/* /////////////////////////// */
+
+/* ////////////////////////////// */
+/* SLIDE BACK ANIMATION KEYFRAMES */
+@keyframes menu-header {
+  from {
+    visibility: hidden;
+    position: absolute;
+    font-size: 0;
+    top: 85px;
+    left: 120px;
+  }
+
+  to {
+    visibility: visible;
+    position: absolute;
+    top: 85px;
+    left: 80px;
+  }
+}
+
+@keyframes menu-page-header {
+  from {
+    opacity: 0;
+    transform: translate(10vw, 0) scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+/* ////////////////////////////// */
+
+/* ESSENTIAL STUFF */
+/* /////////////// */
+
+/* set up the main view */
+body {
+  background-color: var(--main-background-color);
+  color: var(--main-foreground-color);
+  height: 99vh;
+}
+
+/* the header of the page */
+header {
+  margin-top: 20px;
+}
+
+/* the logo of the project */
+.logo {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* THE PROFILE STYLE */
+
+/* user profile element */
+.profile-container {
+  width: 170px;
+}
+
+.profile-name {
+  font-size: 14px;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px !important;
+}
+
+/* the main content of the page */
+#content-main {
+  /* making the height and width responsive to the height and width of the window view */
+  width: 95vw !important;
+  height: 80vh;
+
+  /* override bootstrap max width */
+  max-width: 1900px !important;
+
+  background-color: var(--secondary-background-color);
+  border-radius: 10px;
+}
+
+/* the very bottom of the page */
+footer {
+  height: 40px;
+  width: 95vw;
+  align-self: center;
+}
+
+.copyright-link {
+  font-size: 14px;
+  color: var(--main-foreground-color) !important;
+}
+
+/*  MAIN LINKS STYLE */
+
+a {
+  /* main [anchor] color */
+  color: var(--main-foreground-color) !important;
+}
+
+a:hover {
+  /* main [anchor] hovor effect */
+  color: var(--cyan-color) !important;
+}
+
+/* THE VERY BOTTOM TOOLS BUTTONS */
+
+/* the tools of the page */
+.tools-container {
+  width: 140px;
+}
+
+/* icons of tools buttons */
+.tools-buttons-icons {
+  height: 25px;
+  width: 25px;
+}
+
+/* //////////////////////// */
+/* SPECIAL TO {SERVER PAGE} */
+/* //////////////////////// */
+
+/* ADD SERVER FORMC STYLE */
+.add-server-form {
+  justify-content: space-between;
+  height: 80% !important;
+  width: 90% !important;
+  margin: 20px 0 !important;
+}
+
+/* TABLE COMPONENTS STYLE */
+
+/* the form of the server */
+
+.table-search-tools {
+  background-color: #f5f6f8;
+  min-width: 300px;
+  height: 40px;
+  padding: 5px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  align-self: flex-end;
+}
+
+.table-search-button {
+  background: none !important;
+  border: none;
+  color: #ebebeb;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.table-search-button-icons:hover {
+  stroke: var(--yello-color);
+}
+
+/* search input */
+.search-input-container {
+  background-color: var(--secondary-background-color);
+  min-width: 100px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 4px;
+}
+
+.search-input {
+  border: none;
+  border-radius: 4px;
+  padding-left: 5px;
+  color: var(--main-foreground-color);
+}
+
+.selected-filter-container {
+  height: 20px;
+  background-color: #f5f6f8;
+  border: none;
+  border-radius: 4px;
+}
+
+.selected-filter-container .selected-filter-close,
+.selected-filter-name {
+  font-size: 12px;
+  padding-right: 2px;
+  padding-left: 2px;
+  margin: 0;
+  color: var(--main-foreground-color);
+}
+
+/* filteer options */
+.dropdown-item {
+  color: #4c4f52;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: var(--yello-color);
+  color: #4c4f52;
+}
+
+/* table header */
+.table-header {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: var(--table-header);
+  padding-right: 20px;
+}
+
+/* main table */
+table {
+  display: block;
+  height: 55vh;
+  width: 90vw !important;
+  overflow-y: scroll;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(7, 2fr) 2.5fr repeat(3, 1fr) 4fr;
+}
+
+.th {
+  font-weight: 400;
+  text-align: center;
+  padding: 15px 0;
+  color: #4c4f52;
+}
+
+td {
+  padding-top: 5px;
+}
+
+td {
+  text-align: center;
+  font-size: 12px !important;
+  border-radius: 10px;
+  color: #4c4f52;
+}
+
+/* end of */
+/* //////////////////////// */
+/* SPECIAL TO {SERVER PAGE} */
+/* //////////////////////// */

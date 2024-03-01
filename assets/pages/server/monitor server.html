@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="../../style/style.css">
+  <title>Document</title>
+</head>
+
+<body class="d-flex colum flex-column justify-content-between">
+
+  <!-- main header-->
+  <header class="container-fluid d-flex align-items-center justify-content-between">
+    <h1 class="logo">Streambox</h1>
+    <div class="float-right d-flex align-items-center justify-content-between  profile-container">
+      <h5 class=" profile-name float-left">Mahmoud Hussien</h5>
+      <img class="profile-img float-right" src="../../imgs/profile-photo.jpg" alt="">
+    </div>
+  </header>
+
+  <!-- main content {page state} -->
+  <main id="content-main" class="container d-flex justify-content-center align-items-center flex-column">
+
+    <!-- pages navigation header-->
+    <nav class="align-self-start breadcrumb" aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb">
+        <li class="breadcrumb-item">Servers</li>
+        <li class="breadcrumb-item active" aria-current="page">Monitor servers</li>
+      </ol>
+    </nav>
+
+    <!-- table container-->
+    <div class="d-flex flex-column">
+
+      <!-- table search tools container-->
+      <div class="table-search-tools d-flex justify-content-between align-items-center">
+
+        <!-- table search filter dropdown container-->
+        <div class="dropdown">
+          <button class="table-search-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Filter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22.778" height="20" viewBox="0 0 29.778 27">
+              <path id="Icon_feather-filter" data-name="Icon feather-filter" d="M30.778,4.5H3L14.111,17.639v9.083L19.667,29.5V17.639Z" transform="translate(-2 -3.5)" fill="none" stroke="#8f8f90" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </button>
+          <!-- search filter items container-->
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li class="dropdown-item">Server name</li>
+            <li class="dropdown-item">Domain name</li>
+            <li class="dropdown-item">State</li>
+            <li class="dropdown-item">VPN server</li>
+            <li class="dropdown-item">IP</li>
+            <li class="dropdown-item">RTMP port</li>
+            <li class="dropdown-item">Network interface</li>
+            <li class="dropdown-item">CPU</li>
+            <li class="dropdown-item">Memory</li>
+            <li class="dropdown-item">Storage</li>
+          </ul>
+        </div>
+
+        <!-- table search input container-->
+        <div class="search-input-container d-flex justify-content-between align-items-center">
+
+          <!-- selected filter box container-->
+          <div class="selected-filter-container d-flex align-items-center justify-content-beteen">
+            <label class="selected-filter-name">RTMP Port</label>
+            <button class="mini-button selected-filter-close"><i class="far fa-times-circle"></i></button>
+          </div>
+
+          <!-- search input -->
+          <input type="search" class="search-input">
+        </div>
+
+        <!-- table search button container-->
+        <div class="table-search-button">
+          <button class="table-search-button" title="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22.007" viewBox="0 0 27 27.007">
+              <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search" d="M4.817,29.545l7.509-7.58a10.7,10.7,0,1,1,1.624,1.645l-7.46,7.53a1.156,1.156,0,0,1-1.631.042A1.163,1.163,0,0,1,4.817,29.545ZM20.736,23.7a8.45,8.45,0,1,0-5.977-2.475A8.4,8.4,0,0,0,20.736,23.7Z" transform="translate(-4.5 -4.493)" fill="#8f8f90" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- table data container-->
+      <div class="table-data-container">
+
+        <!-- table header container-->
+        <div class="table-header table-row">
+          <div class="th">Server name</div>
+          <div class="th">Domain name</div>
+          <div class="th">State</div>
+          <div class="th">VPN server</div>
+          <div class="th">IP</div>
+          <div class="th">Client slots</div>
+          <div class="th">RTMP port</div>
+          <div class="th">Network interface</div>
+          <div class="th" class="hardware-use" title="CPU"><i class="fas fa-microchip"></i></div>
+          <div class="th" class="hardware-use" title="Memory"><i class="fas fa-memory"></i></div>
+          <div class="th" class="hardware-use" title="Storage"><i class="fas fa-compact-disc"></i></div>
+          <div class="th action-th">Action</div>
+        </div>
+
+        <!-- main table data container-->
+        <table id="serverstable" class="table table-striped table-hover">
+
+          <!-- //// repeated rows for hard-coded view -->
+          <tbody class="d-block">
+            <tr class="table-row">
+              <td>A4WE</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>B5R</td>
+              <td>255.326.12</td>
+              <td>On</td>
+              <td>115.231.221</td>
+              <td>192.168.1.3</td>
+              <td>5</td>
+              <td>2536</td>
+              <td>26.00.2</td>
+              <td class="hardware-use">60%</td>
+              <td class="hardware-use">40%</td>
+              <td class="hardware-use">60%</td>
+              <td class="action-th">
+                <button class="mini-button" title="stop all streams">
+                  <i class="far fa-stop-circle"></i>
+                </button>
+                <button class="mini-button" title="start all streams">
+                  <i class="far fa-play-circle"></i>
+                </button>
+                <button class="mini-button" title="kill all connections">
+                  <i class="fas fa-ban"></i>
+                </button>
+                <button class="mini-button" title="restart services">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+                <button class="mini-button" title="edit server">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="mini-button" title="delete server">
+                  <i class="fas fa-minus-circle"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- main content {menu state} -->
+  <main id="menu-main" class="hide d-flex justify-content-center align-items-center flex-column">
+    <!-- menu header container -->
+    <header id="menu-header">
+      <h3>Menu</h3>
+    </header>
+
+    <!-- current page header -->
+    <h2 id="menu-page-header">Servers</h2>
+
+    <!-- page navigation container -->
+    <nav id="menu-nav-items" class="menu-nav d-flex justify-content-between align-items-center">
+
+      <figure class="menu-items">
+        <img src="../../imgs/icons/logs.svg" alt="log" />
+      </figure>
+
+      <figure class="menu-items">
+        <img src="../../imgs/icons/dashboard.svg" alt="dashboard" />
+      </figure>
+
+      <figure class="menu-items">
+        <img src="../../imgs/icons/channels.svg" alt="channels" />
+      </figure>
+
+      <figure class="menu-items">
+        <img src="../../imgs/icons/stream.svg" alt="stream" />
+      </figure>
+
+      <figure class="menu-items">
+        <img src="../../imgs/icons/suppliers.svg" alt="suppliers" />
+      </figure>
+
+      <figure class="menu-items">
+        <img src="../../imgs/icons/bouqets.svg" alt="bouqets" />
+      </figure>
+
+      <figure class="menu-items">
+        <img class="current-menu-page" src="../../imgs/icons/servers.svg" alt="servers" />
+        <div class="current-menu-page-line"></div>
+      </figure>
+    </nav>
+  </main>
+
+  <!--the very donw of the page-->
+  <footer class="d-flex justify-content-between align-items-center">
+
+    <!--pages navigaton container-->
+    <div class="pages-navigaton-container d-flex align-items-center justify-content-between">
+
+      <!--menu button-->
+      <button id="menu-button" class="btn btn-link" title="Menu">
+        <svg class="menu-button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 35 35">
+          <path d="M0,0V5H5V0ZM10,0V5h5V0ZM20,0V5h5V0ZM30,0V5h5V0ZM0,10v5H5V10Zm10,0v5h5V10Zm10,0v5h5V10Zm10,0v5h5V10ZM0,20v5H5V20Zm10,0v5h5V20Zm10,0v5h5V20Zm10,0v5h5V20ZM0,30v5H5V30Zm10,0v5h5V30Zm10,0v5h5V30Zm10,0v5h5V30Z" />
+        </svg>
+      </button>
+
+      <div id="pages-links" class="pages-links d-flex justify-content-between align-items-center">
+
+        <hr class="nav-hr">
+
+        <!--add sever page-->
+        <a class="page-link hovered non-active-page" href="add server.html" title="Add server page">
+          <svg style="display: block; position: relative; right: 2.5px; top:2px;" xmlns="http://www.w3.org/2000/svg" width="16.8" height="16.8" viewBox="0 0 22.8 22.8">
+            <path style="fill: #75787B;" id="Icon_material-add-box" data-name="Icon material-add-box" d="M24.767,4.5H7.033A2.533,2.533,0,0,0,4.5,7.033V24.767A2.533,2.533,0,0,0,7.033,27.3H24.767A2.541,2.541,0,0,0,27.3,24.767V7.033A2.541,2.541,0,0,0,24.767,4.5ZM22.233,17.167H17.167v5.067H14.633V17.167H9.567V14.633h5.067V9.567h2.533v5.067h5.067Z" transform="translate(-4.5 -4.5)" fill="#f5f6f8" />
+          </svg>
+        </a>
+
+        <!--monitor page-->
+        <a style="background-color: #34B5E0;" class="page-link hovered" href="monitor server.html" title="Monitor page">
+          <svg style="display: block; position: relative; right: 2.5px; top:2px;" xmlns="http://www.w3.org/2000/svg" width="16.75" height="16.625" viewBox="0 0 24.75 23.625">
+            <g id="Icon_ionic-md-list" data-name="Icon ionic-md-list" transform="translate(-5.625 -6.188)">
+              <g id="Group_100" data-name="Group 100">
+                <path style="fill: #F6F6F6;" id="Path_19" data-name="Path 19" d="M5.625,19.688h18v3.375h-18Z" fill="#5d5d5d" />
+                <path style="fill: #F6F6F6;" id="Path_20" data-name="Path 20" d="M5.625,12.938h22.5v3.375H5.625Z" fill="#5d5d5d" />
+                <path style="fill: #F6F6F6;" id="Path_21" data-name="Path 21" d="M5.625,6.188h24.75V9.563H5.625Z" fill="#5d5d5d" />
+              </g>
+              <path style="fill: #F6F6F6;" id="Path_22" data-name="Path 22" d="M5.625,26.438h20.25v3.375H5.625Z" fill="#5d5d5d" />
+            </g>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+    <!--copyrights page-->
+    <div>
+      <a class="copyright-link" href="#">Copyright 2020</a>
+    </div>
+
+    <!--tools container-->
+    <div class="tools-container d-flex justify-content-between">
+
+      <!--minimize and maximize button-->
+      <button id="minmax-button" class="btn btn-link" title="Minmize or Maximize">
+        <svg id="maximize-icon" class="show tools-buttons-icons" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" title="Full screen">
+          <path id="Icon_feather-maximize" data-name="Icon feather-maximize" d="M12,4.5H7.5a3,3,0,0,0-3,3V12m27,0V7.5a3,3,0,0,0-3-3H24m0,27h4.5a3,3,0,0,0,3-3V24m-27,0v4.5a3,3,0,0,0,3,3H12" transform="translate(-3 -3)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+        </svg>
+
+        <svg id="minimize-icon" class="hide tools-buttons-icons" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" title="Exit full screen">
+          <path id="Icon_feather-minimize" data-name="Icon feather-minimize" d="M12,4.5V9a3,3,0,0,1-3,3H4.5m27,0H27a3,3,0,0,1-3-3V4.5m0,27V27a3,3,0,0,1,3-3h4.5m-27,0H9a3,3,0,0,1,3,3v4.5" transform="translate(-3 -3)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+        </svg>
+      </button>
+
+
+      <!--contact us button-->
+      <button class="btn btn-link" title="Contact us">
+        <svg xmlns="http://www.w3.org/2000/svg" class="tools-buttons-icons" width="20" height="20" viewBox="0 0 27.01 27.008">
+          <path data-name="Icon ionic-ios-call" d="M30.72,25.65a22.686,22.686,0,0,0-4.739-3.171c-1.42-.682-1.941-.668-2.946.056-.837.6-1.378,1.167-2.341.956s-2.862-1.645-4.7-3.48-3.277-3.741-3.48-4.7.359-1.5.956-2.341c.724-1.005.745-1.526.056-2.946A22.238,22.238,0,0,0,10.35,5.28c-1.034-1.034-1.266-.809-1.835-.6a10.443,10.443,0,0,0-1.68.893A5.069,5.069,0,0,0,4.816,7.7c-.4.865-.865,2.475,1.5,6.68a37.272,37.272,0,0,0,6.553,8.74h0l.007.007.007.007h0a37.418,37.418,0,0,0,8.74,6.553c4.2,2.362,5.815,1.9,6.68,1.5a4.983,4.983,0,0,0,2.13-2.018,10.443,10.443,0,0,0,.893-1.68C31.528,26.916,31.76,26.684,30.72,25.65Z" transform="translate(-4.49 -4.503)" />
+        </svg>
+      </button>
+
+      <!--notification and message button-->
+      <button class="btn btn-link" title="Notifications">
+        <svg xmlns="http://www.w3.org/2000/svg" class="tools-buttons-icons" width="20" height="27" viewBox="0 0 27.963 35">
+          <g data-name="Icon ionic-ios-notifications-outline" transform="translate(-6.775 -3.93)">
+            <path id="Path_4" data-name="Path 4" d="M20.37,28.336a.911.911,0,0,0-.893.717,1.762,1.762,0,0,1-.352.766,1.329,1.329,0,0,1-1.132.415,1.351,1.351,0,0,1-1.132-.415,1.762,1.762,0,0,1-.352-.766.911.911,0,0,0-.893-.717h0a.917.917,0,0,0-.893,1.118,3.142,3.142,0,0,0,3.27,2.609,3.136,3.136,0,0,0,3.27-2.609.92.92,0,0,0-.893-1.118Z" transform="translate(2.737 6.868)" />
+            <path id="Path_5" data-name="Path 5" d="M34.387,30.966c-1.347-1.852-4-2.938-4-11.232,0-8.513-3.6-11.935-6.963-12.756-.315-.082-.542-.192-.542-.538V6.175a2.2,2.2,0,0,0-2.1-2.245h-.052a2.2,2.2,0,0,0-2.1,2.245V6.44c0,.338-.227.456-.542.538-3.368.83-6.963,4.243-6.963,12.756,0,8.294-2.651,9.371-4,11.232a1.818,1.818,0,0,0,1.391,2.9h24.5A1.82,1.82,0,0,0,34.387,30.966Zm-3.412.529h-20.4a.4.4,0,0,1-.289-.666,11.126,11.126,0,0,0,1.837-3.048,21.479,21.479,0,0,0,1.251-8.048c0-3.4.612-6.068,1.828-7.92A5.615,5.615,0,0,1,18.588,9.3a3.039,3.039,0,0,0,1.627-.958.673.673,0,0,1,1.041-.018A3.139,3.139,0,0,0,22.9,9.3a5.615,5.615,0,0,1,3.385,2.518c1.216,1.852,1.828,4.517,1.828,7.92a21.479,21.479,0,0,0,1.251,8.048,11.248,11.248,0,0,0,1.881,3.093A.379.379,0,0,1,30.975,31.5Z" transform="translate(0 0)" />
+          </g>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <!--jQwery liberary-->
+  <script src="../../lib/jquery.js"></script>
+
+  <!--main javascript control-->
+  <script src="../../scripts/app.js"></script>
+  <!--anime js liberary-->
+  <!--fontawesome liberary-->
+  <script src="https://kit.fontawesome.com/fe09507a31.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

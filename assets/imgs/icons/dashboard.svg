@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="84" viewBox="0 0 140 114">
+  <g id="Group_70" data-name="Group 70" transform="translate(-401 -430)">
+    <text id="Dashboard" transform="translate(401 511)" fill="#75787b" font-size="25" font-family="SegoeUI-Semilight, Segoe UI" font-weight="300"><tspan x="11.504" y="27">Dashboard</tspan></text>
+    <g id="Column_Chart3" data-name="Column Chart3" transform="translate(10 -2298.714)">
+      <g id="m1" transform="translate(423.435 2728.714)">
+        <rect id="Rectangle_21" data-name="Rectangle 21" width="5.014" height="21.212" transform="translate(0 51.788)" fill="#75787b"/>
+        <rect id="Rectangle_22" data-name="Rectangle 22" width="5.014" height="27.865" transform="translate(10.028 45.135)" fill="#75787b"/>
+        <rect id="Rectangle_23" data-name="Rectangle 23" width="5.014" height="61.303" transform="translate(20.057 11.697)" fill="#75787b"/>
+        <rect id="Rectangle_24" data-name="Rectangle 24" width="5.014" height="73" transform="translate(30.085)" fill="#75787b"/>
+        <rect id="Rectangle_25" data-name="Rectangle 25" width="5.014" height="55.73" transform="translate(40.113 17.27)" fill="#75787b"/>
+        <rect id="Rectangle_26" data-name="Rectangle 26" width="5.014" height="59.787" transform="translate(50.141 13.212)" fill="#75787b"/>
+        <rect id="Rectangle_27" data-name="Rectangle 27" width="5.014" height="66.759" transform="translate(60.17 6.241)" fill="#75787b"/>
+        <rect id="Rectangle_28" data-name="Rectangle 28" width="5.014" height="19.029" transform="translate(70.198 53.971)" fill="#75787b"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="138.037" height="99.25" viewBox="0 0 168.037 149.25">
+  <g id="Group_71" data-name="Group 71" transform="translate(-859.776 -403.75)">
+    <text id="Stream" transform="translate(889 520)" fill="#75787b" font-size="25" font-family="SegoeUI-Semilight, Segoe UI" font-weight="300"><tspan x="17.732" y="27">Stream</tspan></text>
+    <g id="Chart" transform="matrix(0.946, 0.326, -0.326, 0.946, 995.48, 626.714)">
+      <g id="m1" transform="translate(-175 -175)">
+        <path id="Path_3" data-name="Path 3" d="M0,79.6c4.481-13.45,8.963-26.9,13.444-32.177s8.963-2.383,13.444,6.492S35.851,77.641,40.333,79.6s8.963-8.99,13.444-23.145S62.74,24.933,67.221,28.226,76.184,55.467,80.666,60.4s8.963-9.141,13.444-19.476S103.073,24,107.554,21.734s8.963-.209,13.444,6.492,8.963,18.043,13.444,14.113S143.406,19.2,147.887,0" transform="translate(0 0)" fill="none" stroke="#75787b" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

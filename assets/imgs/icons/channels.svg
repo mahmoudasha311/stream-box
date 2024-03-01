@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="182.414" viewBox="0 0 110 132.414">
+  <g id="Group_69" data-name="Group 69" transform="translate(-620 -423.586)">
+    <text id="Channels" transform="translate(620 517)" fill="#75787b" font-size="25" font-family="SegoeUI-Semilight, Segoe UI" font-weight="300"><tspan x="6.056" y="27">Channels</tspan></text>
+    <g id="Icon_feather-tv" data-name="Icon feather-tv" transform="translate(634 422)">
+      <path id="Path_4" data-name="Path 4" d="M10.5,10.5h60c4.142,0,7.5,3.638,7.5,8.125V63.313c0,4.487-3.358,8.125-7.5,8.125h-60C6.358,71.437,3,67.8,3,63.313V18.625C3,14.138,6.358,10.5,10.5,10.5Z" transform="translate(0 6.562)" fill="none" stroke="#75787b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Path_5" data-name="Path 5" d="M38.625,3,24.562,17.062,10.5,3" transform="translate(15.937)" fill="none" stroke="#75787b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
